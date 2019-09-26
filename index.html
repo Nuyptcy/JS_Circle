@@ -21,7 +21,7 @@
     <input id="myInput" type="text" value="myInput">
     <button id="myButton">按鈕</button>
     <p id="text">原本的文字</p>
-    <!-- <div id="circle"></div> -->
+    <div id="circle"></div>
     <script type="text/javascript">
     var myVariable = document.getElementById('myInput').value;
 // 讀取用戶輸入的內容 
@@ -31,10 +31,10 @@
         document.getElementById('text').innerHTML = myVariable;
     }
 
-    // const myVariable = 'circle';
-    // document.getElementById('circle').onclick = function(){
-    //     document.getElementById('circle').style.display = "none";
-    // }
+   var myVariable2 = 'circle';
+    document.getElementById('circle').onclick = function(){
+        document.getElementById('circle').style.display = "none";
+    }
     
     
     </script>
