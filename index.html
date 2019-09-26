@@ -5,42 +5,26 @@
 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-
+    <style>
+    #circle{
+        width: 200px;
+        height: 200px;
+        border-radius: 100px;
+        background-color: red;
+    
+    }
+    </style>
     
 </head>
 
 <body>
-
-    <!-- <button onclick="alert('您好')">請按我</button> -->
-    <button id="myButton">點我</button>
-    <p id="text">原來的一段文字</p>
-    <br><br>
-
-    <button id="myButton1">點我</button>
-    <p id="text1">我想添加:</p>
-    <br><br>
-
-
-    <!-- 內部JS -->
-    <!-- script元素區域 -->
-    <!-- 定義類型 -->
+    <div id="circle"></div>
     <script type="text/javascript">
-    // alert(document.getElementById('text').innerHTML);
-//    document.getElementById('text').innerHTML = "修改後的文字";
-    // document指向文檔，利用getElementById方法獲取參數id
-    // innerHTML指的是讀取id中間的html元素
-    // . conclick = function function是一段代碼的集合
-    // function就是方法
-    // 當我們進行onclick這個動作，就會執行後面的function並輸出大括號內容
-    document.getElementById("myButton").onclick = function(){
-        alert("你好");
-        document.getElementById("text").innerHTML = 新文字;
+    document.getElementById('circle').onclick = function(){
+        document.getElementById('circle').style.display = "none";
     }
-
-    document.getElementById("myButton1").onclick = function(){
-        alert("你好");
-        document.getElementById("text1").innerHTML = document.getElementById('text1').innerHTML + "一段文字";
-    }
+    
+    
     </script>
 
 </body>
