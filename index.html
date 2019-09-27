@@ -21,13 +21,15 @@
     <p>今天天氣如何</p>
     <input id="myInput" type="text" value="myInput">
     <button id="myButton">按鈕</button>
-    <p id="text">原本的文字</p>
+    <!-- <p id="text">原本的文字</p> -->
     <!-- <div id="circle"></div> -->
     <script type="text/javascript">
-    var myArray = ["pizza","chocolate"];
-    myArray.push("apple")
-    console.log(myArray);
-    myArray.splice(1,0,"orange");
+    var x = 2
+    console.log(Math.pow(x,3))
+    // var myArray = ["pizza","chocolate"];
+    // myArray.push("apple")
+    // console.log(myArray);
+    // myArray.splice(1,0,"orange");
     document.getElementById('myButton').onclick = function(){
         if(document.getElementById('myInput').value == "下雨"){
             alert("今天下雨");
@@ -40,10 +42,10 @@
     // var myVariable = document.getElementById('myInput').value;
 // 讀取用戶輸入的內容 
 
-    document.getElementById('myButton').onclick = function(){
-        // myVariable = document.getElementById('myInput').value;
-        document.getElementById('text').innerHTML = myArray[0];
-    }
+    // document.getElementById('myButton').onclick = function(){
+    //     // myVariable = document.getElementById('myInput').value;
+    //     document.getElementById('text').innerHTML = myArray[0];
+    // }
 
 //    var myVariable2 = 'circle';
 //     document.getElementById('circle').onclick = function(){
