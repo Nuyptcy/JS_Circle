@@ -18,6 +18,7 @@
 </head>
 
 <body>
+    <p>今天天氣如何</p>
     <input id="myInput" type="text" value="myInput">
     <button id="myButton">按鈕</button>
     <p id="text">原本的文字</p>
@@ -27,6 +28,15 @@
     myArray.push("apple")
     console.log(myArray);
     myArray.splice(1,0,"orange");
+    document.getElementById('myButton').onclick = function(){
+        if(document.getElementById('myInput').value == "下雨"){
+            alert("今天下雨");
+        }
+
+        else{
+            alert("今天沒下雨");
+        }
+    }
     // var myVariable = document.getElementById('myInput').value;
 // 讀取用戶輸入的內容 
 
