@@ -21,9 +21,12 @@
     <p>今天天氣如何</p>
     <input id="myInput" type="text" value="myInput">
     <button id="myButton">按鈕</button>
+   
     <!-- <p id="text">原本的文字</p> -->
     <!-- <div id="circle"></div> -->
+    <p id="arrayString"></p>
     <script type="text/javascript">
+    var arrayString;
     var x = 2
     console.log(Math.pow(x,3))
     x = Math.floor(x);
@@ -48,10 +51,16 @@
     }
 
     var myArray = ["a","b","c"]
-    console.log(myArray.lengh)
+    // console.log(myArray.lengh)
     for(var i =0;i<myArray.length;i++){
         alert(i);
+        arrayString - arrayString +myArray[i];
     }
+
+    document.getElementById('arrayString').innerHTML = arrayString;
+    
+   
+
     // var myVariable = document.getElementById('myInput').value;
 // 讀取用戶輸入的內容 
 
