@@ -40,7 +40,20 @@
     <style>
    
     body{
-        background-color: rgba(red, green, blue, alpha)
+        background-color: rgba(255, 94, 100, 0.5);
+        color: #FF3864;
+        
+        
+    }
+
+    .bold{
+        font-weight: bold;
+    }
+
+    #box{
+        height:140px;
+        width: 140px;
+        background-color: red;
     }
     
     </style>
@@ -48,8 +61,14 @@
 </head>
 
 <body>
+    <h1>考考您的反應</h1>
+    <p class="bold">反應時間： 0秒</p>
+    <div id="box"></div>
 
     <script type="text/javascript">
+    document.getElementById('box').onclick = function(){
+        this.style.display = "none";
+    }
     
     
     </script>
