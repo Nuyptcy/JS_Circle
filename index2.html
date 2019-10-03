@@ -54,21 +54,35 @@
         height:140px;
         width: 140px;
         background-color: red;
+        display: none;
     }
     
     </style>
     
 </head>
-
+
 <body>
     <h1>考考您的反應</h1>
     <p class="bold">反應時間： 0秒</p>
     <div id="box"></div>
 
     <script type="text/javascript">
+    //亂數包括0但不包括1
+    var time = Math.random();
+    time = time * 2000;
+    function makeBox(){
+        //setTimeout內部function 單位毫秒
+        setTimeout(function(){
+            document.getElementById('box').style.display = "block";
+        },time)
+    }
     document.getElementById('box').onclick = function(){
         this.style.display = "none";
+        makeBox();
+
     }
+
+    makeBox();
     
     
     </script>
