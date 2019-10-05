@@ -70,11 +70,17 @@
 
             // console.log(document.documentElement.clientWidth);
             // console.log(document.documentElement.clientHeight);
+            var min = 0;
+            var max = window.innerHeight - 280;
+            // var top = Math.random();//生成一個隨機數
+            var top = Math.floor(Math.random() *(max-min+1)) +min;
             
-            var top = Math.random();//生成一個隨機數
-            top = top * 500;//讓頂端距離不要超出500px並賦值
-            var left = Math.random();
-            left = left *800;
+            min = 0;
+            max = window.innerWidth - 14;
+            // top = top * 500;//讓頂端距離不要超出500px並賦值
+            // var left = Math.random();
+            var left = Math.floor(Math.random() *(max-min+1)) +min;
+            // left = left *800;
             document.getElementById('box').style.top = top + "px";
             document.getElementById('box').style.left = left + "px";
             document.getElementById('box').style.backgroundColor = getRandomColor();
