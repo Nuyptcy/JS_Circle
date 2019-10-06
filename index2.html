@@ -6,6 +6,10 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style>
+    
+    :root{
+        --bound:80px;
+    }
    
     body{
         background-color: rgba(255, 94, 100, 0.5);
@@ -19,14 +23,20 @@
     }
 
     #box{
-        height:140px;
-        width: 140px;
+        height:var(--bound);
+        width: var(--bound);
         background-color: red;
         display: none;
         position: relative; 
     }
     
     </style>
+   
+    
+    <!-- 修改css變量 -->
+    
+
+
     
 </head>
 
