@@ -86,7 +86,19 @@
             var top = Math.floor(Math.random() *(max-min+1)) +min;
             
             min = 0;
-            max = window.innerWidth - 14;
+            max = window.innerWidth - 140;
+
+            var dynamicBound;
+            if(window.innerWidth>window.innerWidth){
+                dynamicBound = window.innerwidth / 8;
+                console.log("Width" + dynamicBound);
+            }else{
+                dynamicBound = window.innerHeight / 8;
+                console.log("Height" + dynamicBound);
+            }
+
+            dynamicBound = dynamicBound + "px";
+            document.documentElement.style.setProperty("--bound",dynamicBound);
             // top = top * 500;//讓頂端距離不要超出500px並賦值
             // var left = Math.random();
             var left = Math.floor(Math.random() *(max-min+1)) +min;
