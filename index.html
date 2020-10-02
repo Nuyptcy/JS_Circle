@@ -1,94 +1,131 @@
 <!DOCTYPE html>
 <html lang="zh-Hant-TW">
 <head>
-    <title>Writing JS</title>
+    <title>反應小遊戲</title>
 
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style>
-    #circle{
-        width: 200px;
-        height: 200px;
-        border-radius: 100px;
-        background-color: red;
     
+    :root{
+        --bound:80px;
     }
+
+    body{
+        background-color: rgba(255, 94, 100, 0.5);
+        color: #FF3864;
+        
+        
+    }
+
+    .bold{
+        font-weight: bold;
+    }
+
+    #box{
+        height:var(--bound);
+        width: var(--bound);
+        background-color: red;
+        display: none;
+        position: relative; 
+    }
+    
     </style>
+   
+    
+    <!-- 修改css變量 -->
+    
+
+
     
 </head>
-
+
 <body>
-    <p>今天天氣如何</p>
-    <input id="myInput" type="text" value="myInput">
-    <button id="myButton">按鈕</button>
-   
-    <!-- <p id="text">原本的文字</p> -->
-    <!-- <div id="circle"></div> -->
-    <p id="arrayString"></p>
+    <h1>考考您的反應</h1>
+    <p class="bold">反應時間： <span id="time">0</span>秒</p>
+    <div id="box"></div>
+
     <script type="text/javascript">
-    var arrayString;
-    var x = 2
-    console.log(Math.pow(x,3))
-    x = Math.floor(x);
-    // var myArray = ["pizza","chocolate"];
-    // myArray.push("apple")
-    // console.log(myArray);
-    // myArray.splice(1,0,"orange");
-    document.getElementById('myButton').onclick = function(){
-        if(document.getElementById('myInput').value == "下雨"){
-            alert("今天下雨");
-        }
+    // alert(Date.now());
+    //公共變量 讓所有function都可以調用它
+    var createdTime;
+    var clickedTime;
+    var reactionTime;
 
-        else{
-            alert("今天沒下雨");
-        }
-    }
-
+    //亂數包括0但不包括1
     
-    //for loop
-    for(var i =0; i<5 ; i++){
-        alert(i);
+    function getRandomColor(){
+        var max = 200;
+        var min = 50; 
+        var green = Math.floor(Math.random() *(max-min+1)) +min;
+        //Math.round()向上取整數 //floor向下取整
+        var color = "rgba(255,"+ green +", 100, 1.0)";//返回值須為字符串所以用"""
+        return color;
     }
-
-    var arrayString = "";
-    var myArray = ["a","b","c"]
-    // console.log(myArray.lengh)
-    for(var i =0;i<myArray.length;i++){
-        alert(i);
-        arrayString - arrayString +myArray[i]+" ";
-    }
-
-    document.getElementById('arrayString').innerHTML = arrayString;
     
-   
+    function makeBox(){
+        var time = Math.random();
+        time = time * 2000;
+        //setTimeout內部function 單位毫秒
+        setTimeout(function(){
+            if (Math.random() >= 0.5){
+                document.getElementById('box').style.borderRadius = "70px";//值必須為字符串
 
-    // var myVariable = document.getElementById('myInput').value;
-// 讀取用戶輸入的內容 
+            }else{
+                document.getElementById('box').style.borderRadius = "0px";
+            }
 
-    // document.getElementById('myButton').onclick = function(){
-    //     // myVariable = document.getElementById('myInput').value;
-    //     document.getElementById('text').innerHTML = myArray[0];
-    // }
+            // console.log(window.innerWidth);
+            // console.log(window.innerHeight);
 
-//    var myVariable2 = 'circle';
-//     document.getElementById('circle').onclick = function(){
-//         document.getElementById('circle').style.display = "none";
-//     }
+            // console.log(document.documentElement.clientWidth);
+            // console.log(document.documentElement.clientHeight);
+            var min = 0;
+            var max = window.innerHeight - 280;
+            // var top = Math.random();//生成一個隨機數
+            var top = Math.floor(Math.random() *(max-min+1)) +min;
+            
+            min = 0;
+            max = window.innerWidth - 140;
 
+            var dynamicBound;
+            if(window.innerWidth>window.innerWidth){
+                dynamicBound = window.innerwidth / 8;
+                console.log("Width" + dynamicBound);
+            }else{
+                dynamicBound = window.innerHeight / 8;
+                console.log("Height" + dynamicBound);
+            }
 
-//while loop
+            dynamicBound = dynamicBound + "px";
+            document.documentElement.style.setProperty("--bound",dynamicBound);
+            // top = top * 500;//讓頂端距離不要超出500px並賦值
+            // var left = Math.random();
+            var left = Math.floor(Math.random() *(max-min+1)) +min;
+            // left = left *800;
+            document.getElementById('box').style.top = top + "px";
+            document.getElementById('box').style.left = left + "px";
+            document.getElementById('box').style.backgroundColor = getRandomColor();
+            document.getElementById('box').style.display = "block";
+            createdTime = Date.now();
+        },time);
 
-var ii = 0;
-while(ii<myArray.length){
-    arrayString = arrayString +myArray[ii]+" ";
-    ii++
-}
+        // creatTime = Date.now(); 多了一個隨機時間之後才開始計算時間，時間延遲
+        
+    }
+    document.getElementById('box').onclick = function(){
+        this.style.display = "none";
+        clickedTime = Date.now();
+        reactionTime =(clickedTime - createdTime)/1000;
+        document.getElementById('time').innerHTML = reactionTime;
+        makeBox();
 
-while()
+    }
+
+    makeBox();
     
     
     </script>
 
 </body>
 </html>
-
